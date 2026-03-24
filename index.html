@@ -35,8 +35,11 @@
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         width: 100%;
         position: fixed;
+        z-index: 1;
       }
-      h2 { color: var(--dark-blue);}
+      h2 {
+        color: var(--dark-blue);
+      }
       nav a {
         margin: 0 12px;
         text-decoration: none;
@@ -51,7 +54,7 @@
         position: relative;
         overflow: hidden;
         height: 360px;
-        top:68px;
+        top: 68px;
         margin-bottom: 5em;
       }
       .slides {
@@ -104,7 +107,7 @@
         border-radius: 8px;
         border: 1px solid #ddd;
       }
-      a.btn-primary{
+      a.btn-primary {
         padding: 8px 12px;
         border: none;
         border-radius: 8px;
@@ -124,7 +127,7 @@
         background: var(--blue);
         color: white;
       }
-      a.btn-secondary{
+      a.btn-secondary {
         padding: 8px 12px;
         border: none;
         border-radius: 8px;
@@ -138,6 +141,7 @@
       }
       .btn-group {
         margin-top: 1em;
+        display: block;
       }
       .cart,
       .checkout {
@@ -148,12 +152,18 @@
       }
       #cartList {
         padding: 2em;
+        background: #f1f5f9;
+        padding: 15px;
+        border-radius: 10px;
+        margin-top: 10px;
+        font-weight: bold;
       }
       .summary-box {
         background: #f1f5f9;
         padding: 15px;
         border-radius: 10px;
         margin-top: 10px;
+        font-weight: bold;
       }
       footer {
         text-align: center;
@@ -169,8 +179,24 @@
         margin-top: 10px;
         border: 0;
       }
-     .modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);display:none;align-items:center;justify-content:center;}
-     .modal-content{background:white;padding:20px;border-radius:10px;width:300px;text-align:center;}
+      .modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        display: none;
+        align-items: center;
+        justify-content: center;
+      }
+      .modal-content {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        width: 300px;
+        text-align: center;
+      }
 
       @media (max-width: 768px) {
         header {
@@ -180,6 +206,10 @@
         }
       }
     </style>
+     <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <header>
@@ -197,13 +227,11 @@
         <div
           class="slide"
           style="background-image: url(&quot;img/AVD/banner-adv2.webp&quot;)"
-        >
-        </div>
+        ></div>
         <div
           class="slide"
           style="background-image: url(&quot;img/AVD/banner-adv1.webp&quot;)"
-        >
-        </div>
+        ></div>
         <div
           class="slide"
           style="background-image: url(&quot;img/banner3.jpg&quot;)"
@@ -213,57 +241,205 @@
       </div>
     </div>
     <section>
-        <h2>PRODUCT & SERVICES</h2>
-        <section id="products">
-            <h3 class="title"> FC Bio Sanitary Napkins </h3>
+      <h2>PRODUCT & SERVICES</h2>
+
+      <section id="products">
+        <h3 class="title">AVDTECH</h3>
         <div class="products">
-            <div class="card">
-            <img src="img/Pads/DayPad.png" />
-            <h3>Day Pads</h3>
-            <p>₱230</p>
-            <input type="number" min="1" value="1" id="q1" />
+          <div class="card">
+            <h4>Residential Device</h4>
+            <div class="text-align">
+                <img src="img/AVD/Residential_AVD.png" />
+            </div>
+            <p>₱18,000</p>
+            <input type="number" min="1" value="1" id="q3" />
+            <div class="btn-group d-flex justify-content-center">
+              <a
+                class="btn-primary"
+                onclick="addToCart('Residential Device', 18000, 'q3')"
+                href="#cartList"
+              >
+                Add
+              </a>
+              <a
+                class="btn-secondary"
+                onclick="
+                  openModal('Residential AVD', 'Save electricity efficiently')
+                "
+                >Details</a
+              >
+            </div>
+          </div>
+
+          <!-- <div class="card">
+            <h3>Demo & Installation Residential Service</h3>
+            <img src="img/AVD/Residential_AVD.png" />
+            <p>Free</p>
             <div class="btn-group">
-            <a
+                <a
+                    class="btn-primary"
+                    onclick="addToCart('Demo Residential', 0, 'q3')"
+                    href="#cart"
+                >
+                Add
+                </a>
+                <a class="btn-secondary" onclick="openModal('Demo Residential Device','Save electricity efficiently')">Details</a>
+            </div>
+            </div> -->
+
+          <div class="card">
+            <h4>Commercial Device</h4>
+            <div class="text-align">
+                <img src="img/AVD/Industrial_AVD.png" />
+            </div>
+            <p>₱25,000</p>
+            <input type="number" min="1" value="1" id="q3" />
+            <div class="btn-group d-flex justify-content-center">
+              <a
+                class="btn-primary"
+                onclick="addToCart('Commercial Device', 25000, 'q3')"
+                href="#cartList"
+              >
+                Add
+              </a>
+              <a
+                class="btn-secondary"
+                onclick="
+                  openModal('Commercial Device', 'Save electricity efficiently')
+                "
+                >Details</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h4>Demo & Service</h4>
+            <div class="text-align">
+                <img src="img/AVD/Residential_AVD.png" />
+            </div>
+            <p>Free</p>
+            <div class="btn-group d-flex justify-content-center">
+              <a
+                class="btn-primary"
+                onclick="addToCart('Demo Commercial', 0, 'q3')"
+                href="#cartList"
+              >
+                Add
+              </a>
+              <a
+                class="btn-secondary"
+                onclick="
+                  openModal(
+                    'Demo Commercial Device',
+                    'Save electricity efficiently',
+                  )
+                "
+                >Details</a
+              >
+            </div>
+          </div>
+
+          <div class="card">
+            <h4>AVDTECH Membership</h4>
+            <div class="text-align">
+                <img src="img/AVD/avd_membership.png" />
+            </div>
+            <p>5,000</p>
+            <input type="number" value="1" id="q3" />
+            <div class="btn-group d-flex justify-content-center">
+              <a
+                class="btn-primary"
+                onclick="addToCart('AVD Membership', 5000, 'q3')"
+                href="#cartList"
+              >
+                Add
+              </a>
+              <a
+                class="btn-secondary"
+                onclick="
+                  openModal(
+                    'AVDTECH Membership',
+                    'Save electricity efficiently',
+                  )
+                "
+                >Details</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="products">
+        <h3 class="title">FC Bio Sanitary Napkins</h3>
+        <div class="products">
+          <div class="card">
+            <h4>Day Pads</h4>
+            <div class="text-align">
+                <img src="img/Pads/DayPad.png" />
+            </div>
+            <p>₱230</p>
+            <div class="d-flex align-items-left">
+                <span style="padding-left: 10px;"></span><input type="number" min="1" value="1" id="q1" />
+            </div>
+            <div class="btn-group d-flex">
+              <a
                 class="btn-primary"
                 onclick="addToCart('Day Pads', 200, 'q1')"
-                href="#cart"
-            >
+                href="#cartList">
                 Add
-            </a>
-            <a class="btn-secondary" onclick="openModal('Day Pads','Bio Sanitary Napkins')">Details</a>
+              </a>
+              <a
+                class="btn-secondary"
+                onclick="openModal('Day Pads', 'Bio Sanitary Napkins')"
+                >Details</a
+              >
             </div>
-            </div>
+          </div>
 
-            <div class="card">
-            <h3>Night Pads</h3>
-            <img src="img/Pads/NightPad.png" />
+          <div class="card">
+            <h4>Night Pads</h4>
+            <div class="text-align">
+                <img src="img/Pads/NightPad.png" />
+            </div>
             <p>₱250</p>
             <input type="number" min="1" value="1" id="q2" />
-            <div class="btn-group">
-            <a
+            <div class="btn-group d-flex justify-content-center">
+              <a
                 class="btn-primary"
                 onclick="addToCart('Night Pads', 250, 'q2')"
-                href="#cart"
-            >
+                href="#cartList"
+              >
                 Add
-            </a>
-            <a class="btn-secondary" onclick="openModal('Night Pad','Bio Sanitary Napkins')">Details</a>
+              </a>
+              <a
+                class="btn-secondary"
+                onclick="openModal('Night Pad', 'Bio Sanitary Napkins')"
+                >Details</a
+              >
             </div>
-            </div>
+          </div>
 
-            <div class="card">
-            <h3>Liners</h3>
-            <img src="img/Pads/Liners.png" />
+          <div class="card">
+            <h4>Liners</h4>
+            <div class="text-align">
+                <img src="img/Pads/Liners.png" />
+            </div>
             <p>₱200</p>
             <input type="number" min="1" value="1" id="q3" />
-                <div class="btn-group">
-                <a class="btn-primary" onclick="addToCart('Liners', 200, 'q3')" href="#cart">
-                    Add
-                </a>
-                <a class="btn-secondary" onclick="openModal('Liners Pad','Bio Sanitary Napkins')">Details</a>
-                </div>
+            <div class="btn-group d-flex justify-content-center">
+              <a
+                class="btn-primary"
+                onclick="addToCart('Liners', 200, 'q3')"
+                href="#cartList"
+              >
+                Add
+              </a>
+              <a
+                class="btn-secondary"
+                onclick="openModal('Liners Pad', 'Bio Sanitary Napkins')"
+                >Details</a
+              >
             </div>
-<!-- 
+          </div>
+          <!-- 
             <div class="card">
             <h3>Power Pads</h3>
             <img src="img/Pads/PowerPads.png" />
@@ -281,122 +457,41 @@
             </div>
             </div> -->
 
-            <div class="card">
-            <h3>FC Membership</h3>
-            <img src="img/Pads/membership_fc.png" />
+          <div class="card">
+            <h4>FC Membership</h4>
+            <div class="text-align">
+                <img src="img/Pads/membership_fc.png" />
+            </div>
             <p>₱3000</p>
             <input type="number" min="1" value="1" id="q3" />
-            <div class="btn-group">
-            <a
+            <div class="btn-group d-flex justify-content-center">
+              <a
                 class="btn-primary"
                 onclick="addToCart('Power Pads', 650, 'q3')"
-                href="#cart"
-            >
+                href="#cartList"
+              >
                 Add
-            </a>
-            <a class="btn-secondary" onclick="openModal('Power Pads','Bio Sanitary Napkins')">Details</a>
+              </a>
+              <a
+                class="btn-secondary"
+                onclick="openModal('Power Pads', 'Bio Sanitary Napkins')"
+                >Details</a
+              >
             </div>
-            </div>
+          </div>
         </div>
-        </section>
-        <section id="products">
-            <h3 class="title"> AVDTECH </h3>
-        <div class="products">
-            <div class="card">
-            <h3>Residential Device</h3>
-            <img src="img/AVD/Residential_AVD.png" />
-            <p>₱18,000</p>
-            <input type="number" min="1" value="1" id="q3" />
-            <div class="btn-group">
-            <a
-                class="btn-primary"
-                onclick="addToCart('Residential Device', 18000, 'q3')"
-                href="#cart"
-            >
-                Add
-            </a>
-            <a class="btn-secondary" onclick="openModal('Residential AVD','Save electricity efficiently')">Details</a>
-            </div>
-            </div>
-    
-            <!-- <div class="card">
-            <h3>Demo & Installation Residential Service</h3>
-            <img src="img/AVD/Residential_AVD.png" />
-            <p>Free</p>
-            <div class="btn-group">
-                <a
-                    class="btn-primary"
-                    onclick="addToCart('Demo Residential', 0, 'q3')"
-                    href="#cart"
-                >
-                Add
-                </a>
-                <a class="btn-secondary" onclick="openModal('Demo Residential Device','Save electricity efficiently')">Details</a>
-            </div>
-            </div> -->
-
-            <div class="card">
-            <h3>Commercial Device</h3>
-            <img src="img/AVD/Industrial_AVD.png" />
-            <p>₱25,000</p>
-            <input type="number" min="1" value="1" id="q3" />
-            <div class="btn-group">
-                <a
-                    class="btn-primary"
-                    onclick="addToCart('Commercial Device', 25000, 'q3')"
-                    href="#cart"
-                >
-                    Add
-                </a>
-                <a class="btn-secondary" onclick="openModal('Commercial Device','Save electricity efficiently')">Details</a>
-            </div>
-            </div>
-
-            <div class="card">
-            <h3>Demo & Service</h3>
-            <img src="img/AVD/Residential_AVD.png" />
-            <p>Free</p>
-             <div class="btn-group">
-                <a
-                    class="btn-primary"
-                    onclick="addToCart('Demo Commercial', 0, 'q3')"
-                    href="#cart"
-                >
-                Add
-                </a>
-                <a class="btn-secondary" onclick="openModal('Demo Commercial Device','Save electricity efficiently')">Details</a>
-             </div>
-            </div>
-
-            <div class="card">
-            <h3>AVDTECH Membership</h3>
-            <img src="img/AVD/avd_membership.png" />
-            <p>5,000</p>
-            <input type="number" value="1" id="q3" />
-            <div class="btn-group">
-                <a
-                    class="btn-primary"
-                    onclick="addToCart('AVD Membership', 5000, 'q3')"
-                    href="#cart"
-                >
-                Add
-                </a>
-                <a class="btn-secondary" onclick="openModal('AVDTECH Membership','Save electricity efficiently')">Details</a>
-            </div>
-            </div>
-        </div>
-        </section>
+      </section>
     </section>
 
     <div id="modal" class="modal" onclick="closeModal()">
-        <div class="modal-content" onclick="event.stopPropagation()">
+      <div class="modal-content" onclick="event.stopPropagation()">
         <h3 id="modalTitle"></h3>
         <p id="modalDesc"></p>
         <button class="btn-secondary" onclick="closeModal()">Close</button>
-        </div>
+      </div>
     </div>
 
-    <section id="checkout" class="checkout">
+    <!-- <section id="checkout" class="checkout">
     <h2>Cart</h2>
      <section class="cart" id="cart">
         <ul id="cartList"></ul>
@@ -438,13 +533,138 @@
       <input type="file" />
 
       <button class="btn-primary" onclick="checkout()">Place Order</button>
+    </section> -->
+
+    <section id="checkout" class="container my-5">
+      <div class="row g-4">
+        <!-- CART -->
+        <div class="col-lg-6">
+          <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white">
+              <h5 class="mb-0">🛒 Cart</h5>
+            </div>
+            <div class="card-body">
+              <ul id="cartList" class="list-group mb-3"></ul>
+
+              <div class="d-flex justify-content-between">
+                <strong>Total Item:</strong>
+                <strong>₱<span id="productTotal">0</span></strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CHECKOUT -->
+        <div class="col-lg-6">
+          <div class="card shadow-sm">
+            <div class="card-header bg-success text-white">
+              <h5 class="mb-0">Checkout</h5>
+            </div>
+
+            <div class="card-body">
+              <!-- SUMMARY -->
+              <div class="mb-3 summary-box">
+                <div class="d-flex justify-content-between">
+                <span class="mb-1">Delivery Costs:</span><span class="text-align-right">₱250</span>
+                </div>
+                <div class="d-flex justify-content-between">
+                <span class="mb-1">Total: </span><span id="finalTotal">₱250</span>
+                </div>
+              </div>
+
+              <!-- FORM -->
+              <form>
+                <div class="row g-2">
+                  <div class="col-md-6">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Receiver Name"
+                      required
+                    />
+                  </div>
+
+                  <div class="col-md-6">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Contact Number"
+                      required
+                    />
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label">Service Date</label>
+                    <input type="date" class="form-control" />
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label">Service Time</label>
+                    <input type="time" class="form-control" />
+                  </div>
+
+                  <div class="col-12">
+                    <input
+                      id="address"
+                      type="text"
+                      class="form-control"
+                      placeholder="Enter Address"
+                    />
+                  </div>
+
+                  <div class="col-12">
+                    <iframe
+                      class="w-100 rounded"
+                      height="200"
+                      id="map"
+                      src="https://www.google.com/maps?q=Manila&output=embed"
+                    >
+                    </iframe>
+                  </div>
+
+                  <div class="col-md-6">
+                    <select class="form-select">
+                      <option selected>Payment Method</option>
+                      <option>GCash</option>
+                      <option>Bank Transfer</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-6">
+                    <input type="file" class="form-control" />
+                  </div>
+
+                  <div class="col-12 d-grid">
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      onclick="checkout()"
+                    >
+                      Place Order
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section id="contact">
-      <h2>Contact Us</h2>
-      <p>Email: support@conserved.com</p>
-      <p>Phone: +63 9260352609</p>
-      <p>Address: Metro Manila, Philippines</p>
+    <section id="contact" class="container my-5">
+      <div class="row g-4">
+        <div class="col-lg-6"> 
+        <h2>About Us</h2>
+            <p>
+                We are a dedicated group of scholar electricians committed to delivering safe, reliable, and high-quality electrical installations. Our team specializes in implementing innovative solutions using ADVTECH products to improve energy efficiency and sustainability in every project. Alongside our electrical expertise, we proudly promote FC Sanitary Napkins, supporting health, hygiene, and community well-being. We believe in combining technical excellence with social responsibility to create meaningful impact. Through our skills, knowledge, and advocacy, we aim to empower communities and build a brighter, more sustainable future.
+            </p>
+        </div>
+        <div class="col-lg-6">
+            <h2>Contact Us</h2>
+            <p>Phone: +63 9260352609</p>
+            <p>Address: Metro Manila, Philippines</p>
+        </div>
+      </div>
     </section>
 
     <footer>
@@ -465,11 +685,29 @@
         let list = document.getElementById("cartList");
         list.innerHTML = "";
         let total = 0;
+
         cart.forEach((item, index) => {
           let subtotal = item.price * item.qty;
           total += subtotal;
+
           let li = document.createElement("li");
-          li.innerHTML = `${item.name} x <input type='number' value='${item.qty}' min='1' onchange='updateQty(${index},this.value)'> = ₱${subtotal} <button onclick='removeItem(${index})'>Delete</button>`;
+          li.className =
+            "list-group-item d-flex justify-content-between align-items-center";
+
+          li.innerHTML = `
+      <div>
+        <strong>${item.name}</strong><br>
+        ₱${item.price} x 
+        <input type="number" value="${item.qty}" min="1" 
+        style="width:60px" 
+        onchange="updateQty(${index},this.value)">
+      </div>
+      <div>
+        ₱${subtotal}
+        <button class="btn btn-sm btn-danger ms-2" onclick="removeItem(${index})">X</button>
+      </div>
+    `;
+
           list.appendChild(li);
         });
 
@@ -487,20 +725,21 @@
       }
 
       function checkout() {
-        alert("Order placed!");
+        // alert("Order placed!");
+        window.open("tel:+639260352609");
         cart = [];
         renderCart();
       }
 
-      function openModal(title,desc){
-        document.getElementById('modalTitle').innerText=title;
-        document.getElementById('modalDesc').innerText=desc;
-        document.getElementById('modal').style.display='flex';
-        }
+      function openModal(title, desc) {
+        document.getElementById("modalTitle").innerText = title;
+        document.getElementById("modalDesc").innerText = desc;
+        document.getElementById("modal").style.display = "flex";
+      }
 
-        function closeModal(){
-        document.getElementById('modal').style.display='none';
-        }
+      function closeModal() {
+        document.getElementById("modal").style.display = "none";
+      }
 
       // carousel
       let i = 0;
@@ -518,5 +757,6 @@
           `https://www.google.com/maps?q=${encodeURIComponent(val)}&output=embed`;
       });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
