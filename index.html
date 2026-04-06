@@ -3,6 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="img/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="img/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="img/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png" />
+    <!-- <link rel="manifest" href="img/favicon/site.webmanifest" /> -->
     <title>Conserved | Electricity to Sanitary Pads</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
@@ -221,7 +226,6 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
-    
   </head>
   <body>
     <header>
@@ -251,15 +255,27 @@
       <div class="slides" id="slides">
         <div
           class="slide"
-          style="background-image: url(&quot;img/AVD/banner-adv2.webp&quot;);background-position: bottom; height: 15em;"
+          style="
+            background-image: url(&quot;img/AVD/banner-adv2.webp&quot;);
+            background-position: bottom;
+            height: 15em;
+          "
         ></div>
         <div
           class="slide"
-          style="background-image: url(&quot;img/AVD/banner-adv1.webp&quot;);background-position: bottom; height: 15em;"
+          style="
+            background-image: url(&quot;img/AVD/banner-adv1.webp&quot;);
+            background-position: bottom;
+            height: 15em;
+          "
         ></div>
         <div
           class="slide"
-          style="background-image: url(&quot;img/Pads/FCNapkinsBanner.png&quot;); height: 16em; background-position: center;"
+          style="
+            background-image: url(&quot;img/Pads/FCNapkinsBanner.png&quot;);
+            height: 16em;
+            background-position: center;
+          "
         >
           Sustainable Future
         </div>
@@ -402,7 +418,7 @@
             <div class="text-align">
               <img src="img/Pads/DayPad.png" />
             </div>
-            <p>₱230</p>
+            <p>₱270</p>
             <div class="d-flex align-items-left">
               <span style="padding-left: 10px"></span
               ><input type="number" min="1" value="1" id="q1" />
@@ -410,7 +426,7 @@
             <div class="btn-group d-flex justify-content-center">
               <a
                 class="btn-primary"
-                onclick="addToCart('Day Pads', 200, 'q1')"
+                onclick="addToCart('Day Pads', 270, 'q1')"
                 href="#cartList"
               >
                 Add
@@ -422,18 +438,17 @@
               >
             </div>
           </div>
-
           <div class="card">
             <h5>Night Pads</h5>
             <div class="text-align">
               <img src="img/Pads/NightPad.png" />
             </div>
-            <p>₱250</p>
+            <p>₱300</p>
             <input type="number" min="1" value="1" id="q2" />
             <div class="btn-group d-flex justify-content-center">
               <a
                 class="btn-primary"
-                onclick="addToCart('Night Pads', 250, 'q2')"
+                onclick="addToCart('Night Pads', 300, 'q2')"
                 href="#cartList"
               >
                 Add
@@ -451,12 +466,12 @@
             <div class="text-align">
               <img src="img/Pads/Liners.png" />
             </div>
-            <p>₱200</p>
+            <p>₱250</p>
             <input type="number" min="1" value="1" id="q3" />
             <div class="btn-group d-flex justify-content-center">
               <a
                 class="btn-primary"
-                onclick="addToCart('Liners', 200, 'q3')"
+                onclick="addToCart('Liners', 250, 'q3')"
                 href="#cartList"
               >
                 Add
@@ -563,7 +578,8 @@
 
       <button class="btn-primary" onclick="checkout()">Place Order</button>
     </section> -->
-
+     <!-- FORM Start -->
+    <form id="form">
     <section id="checkout" class="container my-5">
       <div class="row g-4">
         <!-- CART -->
@@ -574,10 +590,9 @@
             </div>
             <div class="card-body">
               <ul id="cartList" class="list-group mb-3"></ul>
-
               <div class="d-flex justify-content-between">
                 <strong>Total Item:</strong>
-                <strong>₱<span id="productTotal">0</span></strong>
+                <strong>₱<span id="productTotal" name="Total Item">0</span></strong>
               </div>
             </div>
           </div>
@@ -589,60 +604,54 @@
             <div class="card-header bg-success text-white">
               <h5 class="mb-0">Checkout</h5>
             </div>
-
             <div class="card-body">
               <!-- SUMMARY -->
               <div class="mb-3 summary-box">
                 <div class="d-flex justify-content-between">
                   <span class="mb-1">Delivery Costs:</span
-                  ><span class="text-align-right">₱250</span>
+                  ><span class="text-align-right" id="deliveryCharge" name="Delivery Charge">₱250</span>
                 </div>
                 <div class="d-flex justify-content-between">
-                  <span class="mb-1">Total: </span
-                  ><span id="finalTotal">₱250</span>
+                  <span class="mb-1">Total: </span>
+                  <span id="finalTotal" name="Final Total">₱250</span>
                 </div>
               </div>
-
-              <!-- FORM -->
-              <form>
                 <div class="row g-2">
                   <div class="col-md-6">
                     <input
                       type="text"
                       class="form-control"
                       placeholder="Receiver Name"
+                      name="Receiver Name"
                       required
                     />
                   </div>
-
                   <div class="col-md-6">
                     <input
                       type="text"
                       class="form-control"
                       placeholder="Contact Number"
+                      name="Contact Number"
                       required
                     />
                   </div>
-
                   <div class="col-md-6">
                     <label class="form-label">Service Date</label>
-                    <input type="date" class="form-control" />
+                    <input type="date" name="Service Date" class="form-control" />
                   </div>
-
                   <div class="col-md-6">
                     <label class="form-label">Service Time</label>
-                    <input type="time" class="form-control" />
+                    <input type="time" name="Service Time" class="form-control" />
                   </div>
-
                   <div class="col-12">
                     <input
                       id="address"
                       type="text"
                       class="form-control"
+                      name="Address to Service"
                       placeholder="Enter Address"
                     />
                   </div>
-
                   <div class="col-12">
                     <iframe
                       class="w-100 rounded"
@@ -652,36 +661,42 @@
                     >
                     </iframe>
                   </div>
-
                   <div class="col-md-6">
-                    <select class="form-select">
+                    <select class="form-select" name="Payment Method">
                       <option selected>Payment Method</option>
                       <option>GCash</option>
                       <option>Bank Transfer</option>
                     </select>
                   </div>
-
                   <div class="col-md-6">
-                    <input type="file" class="form-control" />
+                    <input type="file" name="Payment Screenshot" class="form-control" />
                   </div>
-
                   <div class="col-12 d-grid">
                     <button
                       type="button"
                       class="btn btn-primary"
-                      onclick="checkout()"
+                      id="submit-button"
                     >
                       Place Order
                     </button>
                   </div>
                 </div>
-              </form>
             </div>
+             <!-- FORM End -->
+            <div
+            id="message"
+            style="
+                display: none;
+                margin: 20px;
+                padding: 10px;
+                border-radius: 4px;
+                font-weight: bold;
+            ">
           </div>
         </div>
       </div>
     </section>
-
+    </form>
     <section id="contact" class="container my-5">
       <div class="row g-4">
         <div class="col-lg-6">
@@ -722,93 +737,8 @@
     <footer>
       <p>©. All Rights Reserved 2026</p>
     </footer>
-
-    <script>
-      let cart = [];
-      let deliveryFee = 250;
-
-      function addToCart(name, price, qtyId) {
-        let qty = parseInt(document.getElementById(qtyId).value);
-        cart.push({ name, price, qty });
-        renderCart();
-      }
-
-      function renderCart() {
-        let list = document.getElementById("cartList");
-        list.innerHTML = "";
-        let total = 0;
-
-        cart.forEach((item, index) => {
-          let subtotal = item.price * item.qty;
-          total += subtotal;
-
-          let li = document.createElement("li");
-          li.className =
-            "list-group-item d-flex justify-content-between align-items-center";
-
-          li.innerHTML = `
-      <div>
-        <strong>${item.name}</strong><br>
-        ₱${item.price} x 
-        <input type="number" value="${item.qty}" min="1" 
-        style="width:60px" 
-        onchange="updateQty(${index},this.value)">
-      </div>
-      <div>
-        ₱${subtotal}
-        <button class="btn btn-sm btn-danger ms-2" onclick="removeItem(${index})">X</button>
-      </div>
-    `;
-
-          list.appendChild(li);
-        });
-
-        document.getElementById("productTotal").innerText = total;
-        document.getElementById("finalTotal").innerText = total + deliveryFee;
-      }
-
-      function updateQty(index, qty) {
-        cart[index].qty = parseInt(qty);
-        renderCart();
-      }
-      function removeItem(index) {
-        cart.splice(index, 1);
-        renderCart();
-      }
-
-      function checkout() {
-        // alert("Order placed!");
-        window.open("tel:+639260352609");
-        cart = [];
-        renderCart();
-      }
-
-      function openModal(title, desc) {
-        document.getElementById("modalTitle").innerText = title;
-        document.getElementById("modalDesc").innerText = desc;
-        document.getElementById("modal").style.display = "flex";
-      }
-
-      function closeModal() {
-        document.getElementById("modal").style.display = "none";
-      }
-
-      // carousel
-      let i = 0;
-      setInterval(() => {
-        i = (i + 1) % 3;
-        document.getElementById("slides").style.transform =
-          `translateX(-${i * 100}%)`;
-      }, 3000);
-
-      // simple map update
-      const addressInput = document.getElementById("address");
-      addressInput.addEventListener("change", () => {
-        let val = addressInput.value;
-        document.getElementById("map").src =
-          `https://www.google.com/maps?q=${encodeURIComponent(val)}&output=embed`;
-      });
-    </script>
+  
+  <script src="js/osrt.js" type="text/javascript" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
