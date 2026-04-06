@@ -47,9 +47,9 @@
           list.appendChild(li);
         });
 
-        dlc = deliveryFee;
         crt = document.getElementById("productTotal").innerText = total;
         flt = document.getElementById("finalTotal").innerText = total + deliveryFee;
+        dlc = deliveryFee;
         // return {"Product Total": pdt,"Final Total": flt, "Delivery Fee": deliveryFee};
       }
 
@@ -119,7 +119,6 @@ const totals = {"Cart Total": crt, "Final Total": flt, "Delivery Charge":  dlc};
       //   const fileObj = await uploadFile(fileInput.files[0]);
       //   formDataObj.fileData = fileObj; // Add file data to form data
       // }
-      console.log("form Data", formDataObj)
       // Submit form data
       const scriptURL =
         "https://script.google.com/macros/s/AKfycbxoOcqJvPicdt7jl7Oqq1_RzFSIkY2AdV00A8J6tg_QgLh87zIrjdKu8PMHOdRLiOgJ/exec";
@@ -170,6 +169,6 @@ const totals = {"Cart Total": crt, "Final Total": flt, "Delivery Charge":  dlc};
 //   }
 });
 
-cancelButton.addEventListener("click", function () {
-  form.reset();
-});
+// cancelButton.addEventListener("click", function () {
+//   form.reset();
+// });
