@@ -4,7 +4,6 @@ let deliveryFee = 250;
 var crt = 0;
 var flt = 0;
 var dlc = 0;
-let itemlistcount = 0;
 var itemlist = [];
 
 const form = document.getElementById("form");
@@ -12,6 +11,27 @@ const submitButton = document.getElementById("submit-button");
 const cancelButton = document.getElementById("cancel-button");
 const messageDiv = document.getElementById("message");
 const captchaKeyDiv = document.getElementById("key");
+
+const selectPayment = document.getElementById("paymthd");
+ 
+document.getElementById("QRMaya").style.display = "none";
+ document.getElementById("QRBanktransfer").style.display = "none";
+// console.log(selectPayment.e.options[e.selectedIndex].value);
+
+selectPayment.addEventListener("change", (event) => {
+    const start = event.target.selectionStart;
+    const end = event.target.selectionEnd;
+    const highlightedText = event.target.value.substring(start, end);
+    
+    if(highlightedText=="Maya") {
+      document.getElementById("QRMaya").style.display = "block";
+      document.getElementById("QRBanktransfer").style.display = "none";
+    }
+    if(highlightedText=="Bank Transfer") {
+      document.getElementById("QRBanktransfer").style.display = "block";
+      document.getElementById("QRMaya").style.display = "none";
+    }
+});
 
 function addToCart(name, price, qtyId) {
   let qty = parseInt(document.getElementById(qtyId).value);
@@ -53,9 +73,7 @@ function renderCart() {
 
 const itemname = document.querySelectorAll('.itemname');
 
-  console.log("item ", itemname.length);
-
-  itemlistcount = itemname.length;
+  // console.log("item ", itemname.length);
    
   crt = document.getElementById("productTotal").innerText = total;
   flt = document.getElementById("finalTotal").innerText = total + deliveryFee;
@@ -126,11 +144,14 @@ async function confirmSubmit() {
   //form.addEventListener("submit", async function (e) {
   //submitButton.addEventListener("click", async function (e) {
   //   const captchaR = printmsg();
+  submitButton.disabled = true;
+  submitButton.disabled = false;
+
   renderCart();
   const itemnameqty = document.querySelectorAll('.itemnameqty');
   const itemname = document.querySelectorAll('.itemname');
 
-  console.log("length item", itemlistcount);
+  // console.log("length item", itemlistcount);
 
     // itemlist.push(itemname[itemlistcount].textContent);
     // for (let i = 0; i<itemlistcount.length; i++) {
@@ -172,13 +193,14 @@ async function confirmSubmit() {
     //   console.log("", formDataObj[key]);
     }
     // Handle file upload if a file is selected
-    // if (fileInput.files.length > 0) {
-    //   const fileObj = await uploadFile(fileInput.files[0]);
-    //   formDataObj.fileData = fileObj; // Add file data to form data
-    // }
+    if (fileInput.files.length > 0) {
+      const fileObj = await uploadFile(fileInput.files[0]);
+      formDataObj.fileData = fileObj; // Add file data to form data
+    }
     // Submit form data
     const scriptURL =
-      "https://script.google.com/macros/s/AKfycbxoOcqJvPicdt7jl7Oqq1_RzFSIkY2AdV00A8J6tg_QgLh87zIrjdKu8PMHOdRLiOgJ/exec";
+      "https://script.google.com/macros/s/AKfycbxoA64fdeW7upPNmDwSX08Jz7rjTHL4kAU_MbIxPXR-mwJJW1RqVCZA3cirlKsyDi08/exec";
+      // "https://script.google.com/macros/s/AKfycbxoOcqJvPicdt7jl7Oqq1_RzFSIkY2AdV00A8J6tg_QgLh87zIrjdKu8PMHOdRLiOgJ/exec";
 
     const response = await fetch(scriptURL, {
       redirect: "follow",
